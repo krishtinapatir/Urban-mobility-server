@@ -212,6 +212,13 @@ const readCSV = () => {
   });
 };
 
+const allowedOrigins = [
+  "https://urban-mobility-main-dashboard.vercel.app",
+  "http://localhost:5173"
+];
+
+app.use(cors({ origin: allowedOrigins }));
+
 
 app.get('/', async (req, res) => {
   res.send("Server is running.");
