@@ -188,8 +188,13 @@ const __dirname = path.dirname(__filename);
 // const csvFilePath = path.join(__dirname, "..", "public", "deliveries.csv");
 const csvFilePath = path.join(__dirname, ".", "public", "deliveries.csv");
 
+const allowedOrigins = [
+  "https://urban-mobility-dashboard.vercel.app",
+  "http://localhost:5173"
+]; 
+
 // Allow frontend to access server
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: allowedOrigins }));
 
 // Function to read CSV and convert to JSON
 const readCSV = () => {
